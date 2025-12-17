@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+</head>
+
+<body>
+    <h1>Image Generator of Supundi</h1>
+
+    <form onsubmit="GenerateImage(event)">
+        <input type="text" id="url" placeholder="Enter your URL">
+        <button type="submit">Click to view image</button>
+    </form>
+
+    <div id="image"> </div>
+    <script>
+        let images = [];
+
+        function GenerateImage(event) {
+            event.preventDefault();
+
+            const URL = document.getElementById('url').value;
+            if (URL !== '') {
+                images.push(URL);
+                console.log(images)
+            }
+            const img = document.getElementById('image');
+            img.src = URL;
+
+            ShowImages();
+            
+        }
+
+        function ShowImages(){
+            document.getElementById('image').innerHTML="";
+            for(let i=0; i < images.length; i++){
+                const img = document.createElement('img');
+                img.setAttribute("src",images[i]);
+                img.setAttribute("width","70px")
+
+            const div = document.getElementById('image');
+
+            div.appendChild(img);
+
+            }
+
+            const Gallery = document.getElementById('gallery');
+
+        }
+
+
+        function Delete(index){
+            images.splice(index,1)
+        }
+    </script>
+</body>
+
+</html>
