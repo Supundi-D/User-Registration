@@ -43,17 +43,23 @@
 
             const div = document.getElementById('image');
 
+            const btn = document.createElement('button');
+            btn.innerText = "Delete";
+            btn.onclick = function () {
+                Delete(i);
+            };
+
             div.appendChild(img);
+            div.appendChild(btn);
 
             }
-
             const Gallery = document.getElementById('gallery');
 
         }
 
-
         function Delete(index){
             images.splice(index,1)
+            ShowImages();
         }
     </script>
 </body>
